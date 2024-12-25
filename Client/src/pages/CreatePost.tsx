@@ -5,15 +5,13 @@ import { getRandomPrompt } from '../utlits/index'
 import { FormField, Loader } from '../components'
 
 
-type Props = {}
-
 interface FormState {
   name: string;
   prompt: string;
   photo: string;
 }
 
-const CreatePost = (props: Props) => {
+const CreatePost = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState<FormState>(
     {
