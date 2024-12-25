@@ -22,11 +22,11 @@ const FormField: React.FC<FormFieldProps> = ({
   handleSurpriseMe,
 }) => {
   return (
-    <div className="flex items-center gap-2 mb-2">
+    <div className="flex flex-col  gap-2 mb-2">
       <label htmlFor={name} className="block text-sm font-medium text-grey-900">
         {labelName}
       </label>
-      
+      <div className='flex items-center gap-2' >
       {isSurpriseMe && (
         <button type="button" onClick={handleSurpriseMe} className="font-semibold text-xs bg-[#ECECF1] py-1 px-2 rounded-[5px] text-black">
           Surprise Me
@@ -40,6 +40,7 @@ const FormField: React.FC<FormFieldProps> = ({
        onChange={handleChange}
        required
        className='bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3'/>
+    </div>
     </div>
   );
 };

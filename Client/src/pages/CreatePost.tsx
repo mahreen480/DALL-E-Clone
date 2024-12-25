@@ -69,6 +69,10 @@ const CreatePost = (props: Props) => {
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
+          
+          <div className='relative bg-grey-50'>
+
+          </div>
         </div>
       </form>
     </section>
