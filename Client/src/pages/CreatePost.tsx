@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { preview } from '../assets/preview.png'
+import preview from '../assets/preview.png'; 
 import { getRandomPrompt } from '../utlits/index'
 import { FormField, Loader } from '../components'
 
@@ -13,7 +13,6 @@ interface FormState {
   photo: string;
 }
 
-
 const CreatePost = (props: Props) => {
   const navigate = useNavigate();
   const [form, setForm] = useState<FormState>(
@@ -25,6 +24,11 @@ const CreatePost = (props: Props) => {
 
   const [generateImg, setGenerateImg] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+
+
+  const generateImage = () =>{
+
+  }
 
   const handleSubmit = () => {
 
@@ -70,9 +74,35 @@ const CreatePost = (props: Props) => {
             handleSurpriseMe={handleSurpriseMe}
           />
           
-          <div className='relative bg-grey-50'>
+          <div className='relative bg-grey-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center '>
+            {
+              form.photo?(
+                <img src={form.photo} alt={form.prompt}
+                className='w-full h-full object-contain' />
+              ):(
+                <img src={preview}
+                alt='preview'
+                className='w-full h-full object-contain opacity-40' />
+              )
+            }
 
+            {
+              generateImg &&(
+                <div className='absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg'>
+                  <Loader/>
+                </div>
+              )
+            }
+           
           </div>
+        </div>
+
+        <div className='mt-5 flex gap-5'>
+            <button type='button'
+            onClick={generateImage}
+            className='text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'>
+              {generateImg ? 'Generating...' : 'Generate '}
+            </button>
         </div>
       </form>
     </section>
