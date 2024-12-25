@@ -55,17 +55,17 @@ const CreatePost = (props: Props) => {
             labelName="Your Name"
             type="text"
             name="name"
-            placeholder="john doe"
-            value="{form.name}"
-            handleChange="{handleChange}"
+            placeholder="John Doe"
+            value={form.name}
+            handleChange={handleChange}
           />
           <FormField
             labelName="Prompt"
             type="text"
             name="Prompt"
             placeholder="A surreal landscape with floating islands"
-            value="{form.prompt}"
-            handleChange="{handleChange}"
+            value={form.prompt}
+            handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
